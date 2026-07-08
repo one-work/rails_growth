@@ -9,6 +9,11 @@ module Growth
       attribute :reward_amount, :decimal, precision: 10, scale: 2, default: 0, comment: '赏金池'
       attribute :state, :string, default: 'init'
 
+      enum :state, {
+        init: 'init',
+        royalty_done: 'royalty_done'
+      }
+
       belongs_to :reward
       belongs_to :user
       belongs_to :earner, class_name: 'User', optional: true
@@ -27,17 +32,6 @@ module Growth
 
       delegate :name, to: :user, prefix: :user
       delegate :name, to: :gift, prefix: :gift
-
-      enum :state, {
-        init: 'init',
-        royalty_done: 'royalty_done'
-      }
-
-      acts_as_notify(
-        :default,
-        only: [:amount],
-        methods: [:user_name, :gift_name]
-      )
     end
 
     def sync_earner

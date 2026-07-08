@@ -1,0 +1,4 @@
+Growth::PraiseIncome:
+  default:
+    only: ['amount']
+    methods: ['user_name', 'gift_name']
