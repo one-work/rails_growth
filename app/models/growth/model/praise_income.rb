@@ -67,8 +67,7 @@ module Growth
     def sync_to_notification
       to_notification(
         receiver: self.reward.entity.user,
-        sender: self.praise_user,
-        verbose: true
+        sender: self.praise_user
       )
     end
 
