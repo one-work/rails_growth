@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.app.routes.draw do
   namespace 'growth', defaults: { business: 'growth' } do
     namespace :admin, defaults: { namespace: 'admin' } do
       resources :aims do
